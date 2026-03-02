@@ -1,0 +1,42 @@
+# Virtual Environment — NEVER commit this
+venv/
+env/
+.env/
+.venv/
+
+# Django database — contains sensitive user data
+db.sqlite3
+*.sqlite3
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Django collected static (generated, not source)
+staticfiles/
+static_root/
+
+# Environment variables / secrets
+.env
+.env.local
+*.env
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
