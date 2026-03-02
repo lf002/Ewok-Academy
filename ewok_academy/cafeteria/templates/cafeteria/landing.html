@@ -1,0 +1,191 @@
+{% extends 'cafeteria/base.html' %}
+{% load static %}
+
+{% block title %}Endor Ewok Academy — Home{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+    }
+
+    .hero-badge {
+        display: inline-block;
+        background: rgba(212, 160, 23, 0.15);
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        padding: 0.4rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-family: 'Cinzel', serif;
+    }
+
+    .hero h1 {
+        font-family: 'Cinzel', serif;
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        color: var(--gold-light);
+        line-height: 1.2;
+        text-shadow: 0 0 30px rgba(212, 160, 23, 0.4);
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.15rem;
+        color: rgba(245, 240, 232, 0.8);
+        max-width: 650px;
+        margin: 0 auto 2.5rem;
+        line-height: 1.7;
+    }
+
+    .academy-image-wrapper {
+        margin: 2.5rem auto;
+        max-width: 700px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 3px solid var(--gold);
+        box-shadow: 0 0 40px rgba(212, 160, 23, 0.25), 0 20px 60px rgba(0,0,0,0.5);
+        position: relative;
+    }
+
+    .academy-image-wrapper img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Placeholder if image not yet added */
+    .image-placeholder {
+        width: 100%;
+        height: 380px;
+        background: linear-gradient(135deg, var(--forest-mid) 0%, var(--bark-brown) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        gap: 1rem;
+    }
+
+    .image-placeholder p {
+        font-family: 'Cinzel', serif;
+        font-size: 1rem;
+        color: var(--gold);
+        margin: 0;
+        opacity: 0.7;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 4rem;
+    }
+
+    .card {
+        background: linear-gradient(135deg, rgba(45, 74, 45, 0.5) 0%, rgba(92, 61, 30, 0.3) 100%);
+        border: 1px solid rgba(212, 160, 23, 0.3);
+        border-radius: 10px;
+        padding: 1.8rem;
+        text-align: center;
+        transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gold);
+    }
+
+    .card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+
+    .card h3 {
+        font-family: 'Cinzel', serif;
+        color: var(--gold-light);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+
+    .card p { color: rgba(245, 240, 232, 0.7); font-size: 0.9rem; line-height: 1.6; }
+
+    .cta-section {
+        text-align: center;
+        margin: 4rem 0;
+        padding: 3rem;
+        background: linear-gradient(135deg, rgba(92, 61, 30, 0.3) 0%, rgba(45, 74, 45, 0.3) 100%);
+        border: 1px solid rgba(212, 160, 23, 0.3);
+        border-radius: 12px;
+    }
+
+    .cta-section h2 {
+        font-family: 'Cinzel', serif;
+        color: var(--gold-light);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        color: rgba(245, 240, 232, 0.7);
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .imperial-warning {
+        margin-top: 1.5rem;
+        padding: 0.8rem 1.5rem;
+        background: rgba(139, 0, 0, 0.2);
+        border: 1px solid rgba(200, 0, 0, 0.4);
+        border-radius: 6px;
+        font-size: 0.85rem;
+        color: rgba(245, 200, 200, 0.8);
+        display: inline-block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-badge">🌲 Deep Forest Campus • Moon of Endor</div>
+    <h1>Welcome to the<br>Endor Ewok Academy</h1>
+    <p>The finest educational institution in the Outer Rim. Home to brave warriors, skilled hunters, and the galaxy's most <em>legendary</em> cafeteria.</p>
+    <a href="{% url 'login' %}" class="btn-primary">🍽️ Cafeteria Login</a>
+    <div class="imperial-warning">⚠️ Imperial Scout Troopers are NOT welcome on this campus.</div>
+</div>
+
+<div class="academy-image-wrapper">
+    <img src="{% static 'cafeteria/images/academy.png' %}" alt="The Endor Ewok Academy">
+</div>
+
+<div class="cards">
+    <div class="card">
+        <div class="icon">⚔️</div>
+        <h3>Combat Training</h3>
+        <p>Master the ancient art of glider warfare and boulder-trap engineering. Fight for the Rebellion!</p>
+    </div>
+    <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Forest Survival</h3>
+        <p>Learn to navigate the dense moon-forests, identify edible plants, and track Imperial patrols.</p>
+    </div>
+    <div class="card">
+        <div class="icon">🎵</div>
+        <h3>Tribal Ceremonies</h3>
+        <p>Advanced drumming, log-drumming, and the sacred Yub Nub celebration dance — required for all students.</p>
+    </div>
+    <div class="card">
+        <div class="icon">🍖</div>
+        <h3>Culinary Arts</h3>
+        <p>Our legendary cafeteria serves secret recipes passed down through generations. Login required to view menu.</p>
+    </div>
+</div>
+
+<div class="cta-section">
+    <h2>Hungry After Training?</h2>
+    <p>Our cafeteria serves only the finest Endorian cuisine. But to protect our recipes from Imperial spies, the menu requires authentication.</p>
+    <a href="{% url 'login' %}" class="btn-primary">🔐 Cafeteria Login</a>
+</div>
+{% endblock %}
