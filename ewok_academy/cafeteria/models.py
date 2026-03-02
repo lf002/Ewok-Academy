@@ -1,3 +1,0 @@
-from django.db import models
-
-# No custom models needed — using Django's built-in auth system.
